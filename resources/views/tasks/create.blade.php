@@ -22,19 +22,22 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
             </div>
             
             <div class="mb-3">
                 <label for="description" class="form-label">Description:</label>
-                <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="4">{{old('description')}}</textarea>
             </div>
             
             <div class="mb-3">
                 <label for="created_to" class="form-label">Created to:</label>
                 <select class="form-control" id="created_to" name="created_to">
                     @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{ $user->name }}</option>
+                        <option 
+                        {{old("created_to") == $user->id ? ' selected' : ''}}
+                        value="{{$user->id}}">{{ $user->name }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -43,7 +46,10 @@
                 <label for="priority_id" class="form-label">Priority:</label>
                 <select class="form-select" id="priority_id" name="priority_id">
                     @foreach ($priorities as $priority)
-                        <option value="{{$priority->id}}">{{ $priority->name }}</option>
+                        <option 
+                        {{old("priority_id") == $priority->id ? ' selected' : ''}}
+                        value="{{$priority->id}}">{{ $priority->name }}
+                        </option>
                     @endforeach
                 </select>
             </div>

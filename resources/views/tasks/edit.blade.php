@@ -60,7 +60,7 @@
                     <label class="form-check-label" for="statusTodo">Active</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status" id="statusDone" value=21" {{ $task->status == 2   ? 'checked' : '' }}>
+                    <input class="form-check-input" type="radio" name="status" id="statusDone" value="2" {{ $task->status == 2   ? 'checked' : '' }}>
                     <label class="form-check-label" for="statusDone">Completed</label>
                 </div>
             </div>
